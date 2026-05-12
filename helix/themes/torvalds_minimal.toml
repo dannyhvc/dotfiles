@@ -1,0 +1,81 @@
+# Save this file to:
+# Linux/Mac: ~/.config/helix/themes/monochrome_custom.toml
+# Windows: %AppData%\helix\themes\monochrome_custom.toml
+
+"ui.background" = { bg = "bg" }
+"ui.text" = { fg = "fg" }
+"ui.text.focus" = { fg = "fg", modifiers = ["bold"] }
+"ui.text.inactive" = { fg = "dim" }
+
+# Cursor and Selection
+"ui.selection" = { bg = "sel" }
+"ui.selection.primary" = { bg = "sel" }
+"ui.cursor" = { fg = "bg", bg = "fg" }
+"ui.cursor.match" = { fg = "fg", bg = "sel", modifiers = ["bold"] }
+"ui.cursor.primary" = { fg = "bg", bg = "fg" }
+
+# Gutter and Line Numbers
+"ui.linenr" = { fg = "dim" }
+"ui.linenr.selected" = { fg = "fg", bg = "sel", modifiers = ["bold"] }
+"ui.gutter" = { bg = "bg" }
+
+# Statusline and UI Elements
+"ui.statusline" = { fg = "fg", bg = "sel" }
+"ui.statusline.inactive" = { fg = "dim", bg = "bg" }
+"ui.help" = { fg = "fg", bg = "sel" }
+"ui.popup" = { fg = "fg", bg = "sel" }
+"ui.window" = { fg = "dim" }
+"ui.menu" = { fg = "dim", bg = "sel" }
+"ui.menu.selected" = { fg = "fg", bg = "sel", modifiers = ["bold"] }
+
+# Diagnostics (Mapped to Dim/FG to keep monochrome)
+"warning" = { fg = "fg", modifiers = ["underlined"] }
+"error" = { fg = "fg", modifiers = ["bold", "underlined"] }
+"info" = { fg = "dim" }
+"hint" = { fg = "dim" }
+
+# Syntax Highlighting
+# We use modifiers to differentiate since we are restricted to monochrome
+
+"comment" = { fg = "dim", modifiers = ["italic"] }
+"variable" = { fg = "fg" }
+"variable.builtin" = { fg = "fg", modifiers = ["bold"] }
+"constant" = { fg = "fg" }
+"constant.numeric" = { fg = "fg" }
+"constant.builtin" = { fg = "fg", modifiers = ["bold"] }
+"string" = { fg = "fg" }
+"escape" = { fg = "dim", modifiers = ["bold"] }
+
+"keyword" = { fg = "fg", modifiers = ["bold"] }
+"keyword.control" = { fg = "fg", modifiers = ["bold"] }
+"operator" = { fg = "fg" }
+"function" = { fg = "fg", modifiers = ["bold"] }
+"function.macro" = { fg = "fg", modifiers = ["bold"] }
+"type" = { fg = "fg", modifiers = ["italic"] }
+"type.builtin" = { fg = "fg", modifiers = ["italic", "bold"] }
+"label" = { fg = "dim" }
+"namespace" = { fg = "fg" }
+
+# Punctuation (Dimmed to reduce visual noise)
+"punctuation" = { fg = "fg" }
+"punctuation.delimiter" = { fg = "fg" }
+"punctuation.bracket" = { fg = "fg" }
+
+# Markup (Markdown, etc.)
+"markup.heading" = { fg = "fg", modifiers = ["bold"] }
+"markup.list" = { fg = "dim" }
+"markup.bold" = { fg = "fg", modifiers = ["bold"] }
+"markup.italic" = { fg = "fg", modifiers = ["italic"] }
+"markup.link.url" = { fg = "dim", modifiers = ["underlined"] }
+"markup.link.text" = { fg = "fg" }
+"markup.raw" = { fg = "dim" }
+
+# "magic jump" labels (Amp-like jump mode)
+"ui.virtual.jump-label" = { fg = "#00FF00", modifiers = ["bold"] }
+
+
+[palette]
+bg  = "#202430"
+fg  = "#E6E6E6"
+dim = "#686c85"
+sel = "#33394b"

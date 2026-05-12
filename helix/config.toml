@@ -1,0 +1,118 @@
+theme = "gruber-darker"
+
+[editor]
+line-number = "relative"
+rulers = [80]
+bufferline = "multiple"
+auto-completion = false
+end-of-line-diagnostics = "disable"
+gutters = ["diagnostics", "line-numbers", "spacer", "diff"]
+auto-pairs = false
+idle-timeout = 0
+shell = ["nu", "--stdin", "-c"]
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
+
+
+[editor.statusline]
+left = ["mode","spinner"]
+center = ["file-name"]
+right = [
+  "register",
+  "workspace-diagnostics",
+  "diagnostics",
+  "position",
+  "file-encoding",
+  "file-line-ending",
+  "file-type"
+]
+separator = "|"
+mode.normal = "NORMAL"
+mode.insert = "INSERT"
+mode.select = "SELECT"
+diagnostics = ["warning", "error"]
+workspace-diagnostics = ["warning", "error"]
+
+[editor.inline-diagnostics]
+cursor-line = "disable"
+other-lines = "disable"
+
+[editor.whitespace.render]
+space = "none"
+tab = "all"
+newline = "none"
+
+[editor.whitespace.characters]
+space = " "
+newline = "⏎"
+tabpad = "·"
+tab = "→"
+
+[editor.indent-guides]
+render = true
+character = "▏"
+
+[editor.soft-wrap]
+enable = true
+
+[keys.normal]
+A-l = ":buffer-next"
+A-h = ":buffer-previous"
+A-w = ":buffer-close"
+W = "move_next_sub_word_start"
+B = "move_prev_sub_word_start"
+E = "move_next_sub_word_end"
+"A-j" = [
+  "extend_to_line_bounds",
+  "delete_selection",
+  "paste_after",
+]
+"A-k" = [
+  "extend_to_line_bounds",
+  "delete_selection",
+  "move_line_up",
+  "paste_before",
+]
+"esc" = ["normal_mode", ":write"]
+
+[keys.normal.space]
+i = ":format"
+o = [
+  ":insert-output yazi '%{buffer_name}' --chooser-file=/tmp/unique-file-h21a434",
+  ":redraw"
+]
+"F1" = ":config-open"
+"F2" = ":config-reload"
+"F3" = ":lsp-restart"
+"F4" = ":redraw"
+"space" = {"space" = "keep_primary_selection", "q" = ":buffer-close!"}
+
+[keys.insert]
+"C-;" = "normal_mode"
+"C-backspace" = "delete_word_backward"
+
+[keys.select]
+"C-;" = "normal_mode"
+A-l = ":buffer-next"
+A-h = ":buffer-previous"
+A-w = ":buffer-close"
+W = "move_next_sub_word_start"
+B = "move_prev_sub_word_start"
+E = "move_next_sub_word_end"
+"A-j" = [
+  "extend_to_line_bounds",
+  "delete_selection",
+  "paste_after",
+]
+"A-k" = [
+  "extend_to_line_bounds",
+  "delete_selection",
+  "move_line_up",
+  "paste_before",
+]
+"C-c" = "collapse_selection"
+
+
