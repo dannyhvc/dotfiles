@@ -5,7 +5,7 @@ startup_mode = "Maximized"
 [terminal.shell]
 # To launch Zellij directly, it must be the program. 
 # You can't have both 'nu' and 'zellij' as the primary program.
-program = "/home/dannyhvc/.cargo/bin/zellij"
+program = "/home/dherrera/.cargo/bin/zellij"
 
 [font]
 size = 12.0

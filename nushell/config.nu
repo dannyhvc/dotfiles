@@ -13,10 +13,10 @@ $env.config = {
 }
 
 # source AFTER config is set
-source "~/.cargo/env.nu"
-source ~/.cache/.zoxide.nu
-source ~/.cache/starship/init.nu
-source ~/.cache/atuin/init.nu
+# source "~/.cargo/env.nu"
+source ~/dotfiles/zoxide/init.nu
+source ~/dotfiles/starship/init.nu
+source ~/dotfiles/atuin/init.nu
 
 if "ZELLIJ" not-in ($env | columns) {
     if (which zellij | is-not-empty) {

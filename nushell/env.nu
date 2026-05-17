@@ -78,10 +78,20 @@ $env.EDITOR = "hx"
 $env.VISUAL = "hx"
 
 # Zoxide initialization
-zoxide init nushell | save -f ~/.cache/zoxide/init.nu 
-starship init nu | save -f ~/.cache/starship/init.nu 
-atuin init nu | save -f ~/.cache/atuin/init.nu 
+zoxide init nushell | save -f ~/dotfiles/zoxide/init.nu 
+starship init nu | save -f ~/dotfiles/starship/init.nu 
+atuin init nu | save -f ~/dotfiles/atuin/init.nu 
 
-source ~/.cache/.zoxide.nu
-source ~/.cache/starship/init.nu
-source ~/.cache/atuin/init.nu
+source ~/dotfiles/zoxide/init.nu
+source ~/dotfiles/starship/init.nu
+source ~/dotfiles/atuin/init.nu
+
+# pnpm
+$env.PNPM_HOME = "/home/dherrera/.local/share/pnpm/bin"
+$env.PATH = ($env.PATH | split row (char esep) | prepend ($env.PNPM_HOME | path join "bin") )
+# pnpm end
+
+# local bin
+$env.LOCAL_BIN = "/home/dherrera/.local/bin"
+$env.PATH = ($env.PATH | split row (char esep) | prepend $env.PNPM_HOME )
+# end local bin
