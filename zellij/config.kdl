@@ -510,11 +510,11 @@ scrollback_editor "/usr/bin/hx"
 // A path to a certificate file to be used when setting up the web client to serve the
 // connection over HTTPs
 // 
-// web_server_cert "/path/to/cert.pem"
+web_server_cert "/home/dannyhvc/.config/zellij/certificate.pem"
 // A path to a key file to be used when setting up the web client to serve the
 // connection over HTTPs
 // 
-// web_server_key "/path/to/key.pem"
+web_server_key "/home/dannyhvc/.config/zellij/private-key.pem"
 /// Whether to enforce https connections to the web server when it is bound to localhost
 /// (127.0.0.0/8)
 ///
@@ -562,12 +562,12 @@ show_startup_tips false
 // The ip address the web server should listen on when it starts
 // Default: "127.0.0.1"
 // (Requires restart)
-// web_server_ip "127.0.0.1"
+web_server_ip "0.0.0.0"
  
 // The port the web server should listen on when it starts
 // Default: 8082
 // (Requires restart)
-// web_server_port 8082
+web_server_port 8082
  
 // A command to run (will be wrapped with sh -c and provided the RESURRECT_COMMAND env variable) 
 // after Zellij attempts to discover a command inside a pane when resurrecting sessions, the STDOUT
