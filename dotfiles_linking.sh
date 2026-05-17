@@ -8,5 +8,5 @@ ln -s ~/dotfiles/niri ~/.config/niri
 ln -s ~/dotfiles/nushell ~/.config/nushell
 ln -s ~/dotfiles/zellij ~/.config/zellij
 
-ln -s ~/dotfiles/starship.toml ~/.config/starship.toml
-ln -s ~/dotfiles/.zoxide.nu ~/.zoxide.nu
+ln -s ~/dotfiles/starship/starship.toml ~/.config/starship.toml
+ln -s ~/dotfiles/zoxide/init.nu ~/.zoxide.nu
