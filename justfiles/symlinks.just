@@ -1,3 +1,6 @@
+default:
+    @just --list symlinks
+
 # Link all dotfiles safely
 link-dots:
     #!/usr/bin/env bash
@@ -7,7 +10,7 @@ link-dots:
     ln -sfn ~/dotfiles/atuin ~/.config/atuin
     ln -sfn ~/dotfiles/gh ~/.config/gh
     ln -sfn ~/dotfiles/helix ~/.config/helix
-    # ln -sfn ~/dotfiles/niri ~/.config/niri
+    ln -sfn ~/dotfiles/niri ~/.config/niri
     ln -sfn ~/dotfiles/nushell ~/.config/nushell
     ln -sfn ~/dotfiles/zellij ~/.config/zellij
     ln -sfn ~/dotfiles/starship/starship.toml ~/.config/starship.toml

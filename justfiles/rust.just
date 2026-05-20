@@ -1,3 +1,6 @@
+default:
+    @just --list rust
+
 # Install Rust toolchain
 install-rust:
     #!/usr/bin/env bash

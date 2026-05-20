@@ -1,4 +1,6 @@
-
+default:
+    @just --list system
+ 
 # Setup COPR and RPM Fusion
 setup-repos:
     #!/usr/bin/env bash

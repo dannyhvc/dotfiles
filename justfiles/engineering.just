@@ -1,3 +1,6 @@
+default:
+    @just --list engineering
+
 # Check system repositories for engineering tools
 check-repos:
     #!/usr/bin/env bash
