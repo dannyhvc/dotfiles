@@ -9,7 +9,7 @@ setup-repos:
         sudo dnf copr enable -y lihaohong/yazi
     fi
     if [ ! -f /etc/yum.repos.d/ ]; then
-        echo "--> Enabling Yazi COPR..."
+        echo "--> Enabling Starship COPR..."
         sudo dnf copr enable -y atim/starship
     fi
 
@@ -17,12 +17,12 @@ setup-repos:
         echo "--> Enabling lazygit COPR"
         sudo dnf copr enable atim/lazygit -y
     fi
-    if ! rpm -q rpmfusion-free-release &> /dev/null; then
-        echo "--> Installing RPM Fusion..."
-        sudo dnf install -y \
-            https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm \
-            https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
-    fi
+    # if ! rpm -q rpmfusion-free-release &> /dev/null; then
+    #     echo "--> Installing RPM Fusion..."
+    #     sudo dnf install -y \
+    #         https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm \
+    #         https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+    # fi
 
 # Install core CLI tools
 install-core:
@@ -39,16 +39,21 @@ install-core:
         jq
         wl-clipboard
         starship
-        nushell
+        nu
         hx
         perl-FindBin
         perl-core
         openssl-devel
         pkg-config
-        fuzzel,
+        fuzzel
         lazygit
         bat
         difftastic
+        p7zip
+        p7zip-plugins   
+        @c-development
+        @development-tools   
+        cmake
     )
     TO_INSTALL=()
     for pkg in "${PACKAGES[@]}"; do

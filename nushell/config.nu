@@ -12,6 +12,8 @@ $env.config = {
     }
 }
 
+alias za = zoxide add .
+
 # source AFTER config is set
 # source "~/.cargo/env.nu"
 source ~/dotfiles/zoxide/init.nu
