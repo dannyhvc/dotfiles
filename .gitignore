@@ -3,3 +3,4 @@ helix/runtime/grammars
 nushell/history.txt
 zellij/certificate.pem
 zellij/private-key.pem
+ibus/bus
