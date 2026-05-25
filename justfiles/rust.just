@@ -20,5 +20,7 @@ install-cargo:
     { if ! command -v zellij &> /dev/null; then cargo install zellij --locked; fi; } &
     { if ! command -v atuin &> /dev/null; then cargo install atuin --locked; fi; } &
     { if ! command -v just-lsp &> /dev/null; then cargo install just --locked; fi } &
+    { if ! command -v jj &> /dev/null; then cargo install --locked --bin jj jj-cli; fi } &
+
     wait
     echo "--> Cargo apps installed."
