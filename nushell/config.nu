@@ -13,12 +13,14 @@ $env.config = {
 }
 
 alias za = zoxide add .
+alias asg = ast-grep
 
 # source AFTER config is set
 # source "~/.cargo/env.nu"
 source ~/dotfiles/zoxide/init.nu
 source ~/dotfiles/starship/init.nu
 source ~/dotfiles/atuin/init.nu
+source ~/dotfiles/nushell/nix.nu
 
 if "ZELLIJ" not-in ($env | columns) {
     if (which zellij | is-not-empty) {

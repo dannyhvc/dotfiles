@@ -1,7 +1,10 @@
 default:
     @just --list ide
 
-ide-install: uv-install uv-tools
+ide-install: uv-install uv-tools clangd-install
+
+clangd-install:
+    sudo dnf install clang-tools-extra   
 
 uv-install:
     #!/usr/bin/env bash

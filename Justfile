@@ -3,7 +3,6 @@ mod symlinks "justfiles/symlinks.just"
 mod system "justfiles/system.just"
 mod rust "justfiles/rust.just"
 mod engineering "justfiles/engineering.just"
-mod ide "justfiles/ide.just"
 
 default:
     @just --list
@@ -11,16 +10,26 @@ default:
 # Run complete system bootstrap
 setup-all:
     just symlinks link-dots
-    just system setup-repos
-    just system install-core
-    just system install-browser
+    just system install-core-dnf
+    just system install-nix-userland
     just rust install-rust
-    just rust install-cargo
+    just system install-browser
     just system set-defaults
-    just system check-repos
-    just system install-apps
-    just engineering install-uv
-    just ide setup-workspace
+    just engineering check-repos
+    just engineering install-gui-apps
     @echo "============================================="
-    @echo " System fully configured."
+    @echo " System fully configured via DNF & Nix."
+    @echo "============================================="
+
+# Completely reset and uninstall everything added by this script
+reset-all:
+    @echo "============================================="
+    @echo " WARNING: Starting full system reset..."
+    @echo "============================================="
+    just symlinks reset-symlinks
+    just rust reset-rust
+    just engineering reset-engineering
+    just system reset-system
+    @echo "============================================="
+    @echo " System reset complete. Back to baseline."
     @echo "============================================="
