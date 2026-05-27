@@ -24,7 +24,7 @@ fi
 # Install 'just' via Nix so we can run the rest of the setup
 if ! command -v just &> /dev/null; then
     echo "--> Installing 'just' via Nix..."
-    nix profile install nixpkgs#just
+    nix profile add nixpkgs#just
 fi
 
 # Hand over control to the Justfile

@@ -35,7 +35,7 @@ install-core-dnf:
 install-nix-userland:
     #!/usr/bin/env bash
     echo "--> Installing terminal userland via Nix..."
-    nix profile install \
+    nix profile add \
         nixpkgs#fd \
         nixpkgs#ripgrep \
         nixpkgs#yazi \
