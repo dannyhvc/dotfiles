@@ -1,9 +1,7 @@
 # Nushell Environment Config File
-# version = "0.99.1"
-
 
 def create_left_prompt [] { 
-    let dir = match (do --ignore-shell-errors { $env.PWD | path relative-to $nu.home-path }) {
+    let dir = match (do { $env.PWD | path relative-to $env.HOME }) {
         null => $env.PWD
         '' => '~' 
         $relative_pwd => ([~ $relative_pwd] | path join)
@@ -60,7 +58,7 @@ $env.NU_PLUGIN_DIRS = [
 
 # Set default CARGO_HOME if not already set
 # Safely set CARGO_HOME if not already defined
-$env.CARGO_HOME = ($env.CARGO_HOME? | default ($nu.home-path | path join ".cargo"))
+$env.CARGO_HOME = ($env.CARGO_HOME? | default ($env.HOME | path join ".cargo"))
 
 # Add $CARGO_HOME/bin to PATH
 $env.PATH ++= [($env.CARGO_HOME | path join "bin")]   

@@ -321,7 +321,7 @@ web_client {
 // Choose the path to the default shell that zellij will use for opening new panes
 // Default: $SHELL
 // 
-default_shell "/usr/bin/nu"
+default_shell "nu"
  
 // Choose the path to override cwd that zellij will use for opening new panes
 // 
@@ -412,7 +412,7 @@ default_shell "/usr/bin/nu"
  
 // Path to the default editor to use to edit pane scrollbuffer
 // Default: $EDITOR or $VISUAL
-scrollback_editor "/usr/bin/hx"
+scrollback_editor "hx"
  
 // A fixed name to always give the Zellij session.
 // Consider also setting `attach_to_session true,`
