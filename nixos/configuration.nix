@@ -1,3 +1,6 @@
+# RUN:
+# sudo nixos-rebuild switch --flake /etc/nixos#nixos --option substituters "https://cache.nixos.org https://niri.cachix.org" --option require-sigs false
+# to build nixos generation
 {
   config,
   pkgs,
@@ -9,26 +12,26 @@
   imports = [
     inputs.dms.nixosModules.dank-material-shell
   ];
-  # ─── Boot ─────────────────────────────────────────────────────────────────
+  # ─── Boot 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  # ─── Networking ────────────────────────────────────────────────────────────
+  # ─── Networking 
   networking.hostName = "nixos"; # change if you want
   networking.networkmanager.enable = true;
 
-  # ─── Locale ────────────────────────────────────────────────────────────────
+  # ─── Locale 
   time.timeZone = "America/Toronto";
   i18n.defaultLocale = "en_US.UTF-8";
 
-  # ─── Niri session (via niri-flake) ─────────────────────────────────────────
+  # ─── Niri session (via niri-flake)
   programs.niri = {
     enable = true;
     package = inputs.niri.packages.${pkgs.system}.niri-unstable;
   };
   programs.dank-material-shell.enable = true;
 
-  # ─── Display manager ───────────────────────────────────────────────────────
+  # ─── Display manager
   services.greetd = {
     enable = true;
     settings.default_session = {
@@ -42,7 +45,7 @@
     enable32Bit = true;
   };
 
-  # ─── XDG portals ───────────────────────────────────────────────────────────
+  # ─── XDG portals
   xdg.portal = {
     enable = true;
     wlr.enable = true;
@@ -50,7 +53,7 @@
     config.common.default = "*";
   };
 
-  # ─── PipeWire audio ────────────────────────────────────────────────────────
+  # ─── PipeWire audio 
   services.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
@@ -60,11 +63,11 @@
     pulse.enable = true;
   };
 
-  # ─── Bluetooth ─────────────────────────────────────────────────────────────
+  # ─── Bluetooth
   hardware.bluetooth.enable = true;
   services.blueman.enable = true;
 
-  # ─── Fonts ─────────────────────────────────────────────────────────────────
+  # ─── Fonts
   fonts = {
     packages = with pkgs; [
       nerd-fonts.hack
@@ -83,7 +86,7 @@
     };
   };
 
-  # ─── System packages ───────────────────────────────────────────────────────
+  # ─── System packages
   programs.dconf.enable = true;
   environment.systemPackages = with pkgs; [
     adwaita-icon-theme # application icons
@@ -96,6 +99,7 @@
     clang-tools
     cmake
     curl
+    devenv
     ffmpeg
     foot # backup terminal
     fuzzel
@@ -180,8 +184,24 @@
   # Enables battery percentage indicator
   services.upower.enable = true;
 
+  # Enable the fprintd service
+  services.fprintd.enable = true;
+
+  # # Only add these if the default driver fails to detect your scanner
+  # services.fprintd.tod.enable = true;
+  # services.fprintd.tod.driver = pkgs.libfprint-2-tod1-goodix;
+
   services.dbus.enable = true;
 
+  # Enable fingerprint support for terminal sudo commands
+  security.pam.services.sudo.fprintAuth = true;
+
+  # Enable fingerprint support for graphical privilege escalation
+  security.pam.services.polkit-1.fprintAuth = true;
+
+  # If you use a display manager like GDM or SDDM, you can also enable it there:
+  # security.pam.services.gdm.fprintAuth = true;
+  
   security.polkit.enable = true;
   system.stateVersion = "25.05";
 }
