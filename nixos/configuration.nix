@@ -95,6 +95,7 @@
     blueman
     brave # browser
     brightnessctl
+    cacert
     clang
     clang-tools
     cmake
